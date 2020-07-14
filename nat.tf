@@ -156,7 +156,7 @@ resource "aws_security_group" "private_sec"{
         from_port   = 22
         to_port     = 22
         protocol    = "tcp"
-        cidr_blocks =["0.0.0.0/0"]
+        security_groups=[aws_security_group.bastionhost_sec.id]
         }
    ingress {
         from_port   = 3306
